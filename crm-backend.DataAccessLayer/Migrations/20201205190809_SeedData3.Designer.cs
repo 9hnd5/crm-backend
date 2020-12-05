@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using crm_backend.DataAccessLayer.EF;
 
 namespace crm_backend.DataAccessLayer.Migrations
 {
     [DbContext(typeof(CrmBackendDbContext))]
-    partial class CrmBackendDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201205190809_SeedData3")]
+    partial class SeedData3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
