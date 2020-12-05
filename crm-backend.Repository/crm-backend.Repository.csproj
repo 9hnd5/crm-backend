@@ -5,4 +5,8 @@
     <RootNamespace>crm_backend.Repository</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\crm-backend.DataAccessLayer\crm-backend.DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
