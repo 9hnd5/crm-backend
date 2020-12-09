@@ -1,3 +1,4 @@
+using crm_backend.Controller.DailyJob;
 using crm_backend.DataAccessLayer.EF;
 using crm_backend.Repository.Implement;
 using crm_backend.Repository.Interface;
@@ -29,9 +30,11 @@ namespace crm_backend.Controller
                                       builder.WithOrigins("https://localhost:3000", "http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
                                   });
             });
+            services.AddHostedService<ChangeStatusLeadPrevMonth>();
             services.AddDbContext<CrmBackendDbContext>(options => options.UseSqlServer("Server=.;Database=crm-backend;Trusted_Connection=True;"));
             services.AddControllers();
             services.AddScoped<ILeadRepository, LeadRepository>();
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,10 +52,6 @@ namespace crm_backend.Controller
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
             });
         }
     }

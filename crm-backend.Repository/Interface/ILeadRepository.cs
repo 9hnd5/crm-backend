@@ -8,10 +8,9 @@ namespace crm_backend.Repository.Interface
 {
     public interface ILeadRepository
     {
-        public List<Lead> GetAllLead();
-        public void UpdateLeadById(int id, Lead lead);
-        public Lead GetLeadById(int id);
-        public void SaveChanges();
-
+        public List<Lead> GetLeads(int index, int size);
+        public Object ReportLeadByStatus();
+        public List<Lead> ReportLeadByDate(string from, string to);
+        public List<Lead> Paging(int pageIndex, int pageSize);
     }
 }
